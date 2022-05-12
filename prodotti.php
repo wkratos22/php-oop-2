@@ -1,45 +1,44 @@
 <?php
-
-    class giochi {
-        public $tipo;
-        public $prezzo;
-        public $colore;
-
-
-        public function __construct($_tipo, $_prezzo, $_colore){
-            $this -> tipo = $_tipo;
-            $this -> prezzo = $_prezzo;
-            $this -> colore = $_colore;
-        }
-    }
     
+    require __DIR__ . './traits/traitsProdotti.php';
 
-    class cucce {
-        public $prezzo;
-        public $colore;
+    class prodotto{
 
+        use Product;
 
-        public function __construct($_prezzo, $_colore){
-            $this -> colore = $_colore;
-            $this -> prezzo = $_prezzo;
-            
+        //constructor
+        public function __construct( $_name, $_description, $_price ){
+            $this -> setName( $_name );
+            $this -> setDescription( $_description );
+            $this -> setName( $_price );
         }
-    }
 
-
-    class cibo {
-        public $tipo;
-        public $peso;
-        public $prezzo;
-
-
-        public function __construct($_tipo, $_peso, $_prezzo){
-            $this -> tipo = $_tipo;
-            $this -> peso = $_peso;
-            $this -> prezzo = $_prezzo;
-
-            
+        //setter
+        public function setName($_name){
+            $this -> name = $_name;
         }
+
+        public function setDescription($_description){
+            $this -> description = $_description;
+        }
+
+        public function setPrice($_price){
+            $this -> price = $_price;
+        }
+
+        //getter
+        public function getName(){
+            return $this -> name;
+        }
+
+        public function getDescription(){
+            return $this -> description;
+        }
+
+        public function getPrice(){
+            return $this -> price;
+        }
+
     }
 
 ?> 
